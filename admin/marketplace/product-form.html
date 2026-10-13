@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فرم محصول | فرت‌بافی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body class="admin-layout">
+  <!--#include file="../shared/partials/admin-sidebar.html" -->
+  <main class="admin-main">
+    <header class="admin-header"><h1>افزودن/ویرایش محصول</h1></header>
+    <form class="admin-form" onsubmit="event.preventDefault(); showToast('محصول ذخیره شد', 'success');">
+      <div class="form-section">
+        <h3>اطلاعات محصول</h3>
+        <div class="form-group"><label>نام محصول</label><input class="input" type="text" placeholder="نام محصول" required></div>
+        <div class="form-row">
+          <div class="form-group"><label>قیمت (تومان)</label><input class="input" type="number" placeholder="مثلاً ۲۸۰۰۰۰" required></div>
+          <div class="form-group"><label>قیمت قدیم (تخفیف)</label><input class="input" type="number" placeholder="اختیاری"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>دسته‌بندی</label><select class="select"><option>حوله</option><option>پارچه</option><option>شال و روسری</option></select></div>
+          <div class="form-group"><label>موجودی اولیه</label><input class="input" type="number" value="0" required></div>
+        </div>
+        <div class="form-group"><label>توضیحات</label><textarea class="textarea" rows="4" placeholder="توضیحات محصول..."></textarea></div>
+      </div>
+      <div class="form-section">
+        <h3>تصاویر</h3>
+        <div class="upload-area"><i class="ti ti-cloud-upload"></i><p>تصاویر محصول</p></div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn"><i class="ti ti-device-floppy"></i> ذخیره</button>
+      </div>
+    </form>
+  </main>
+  <div class="toast-container"></div>
+  <script src="../../assets/js/app.js"></script>
+</body>
+</html>

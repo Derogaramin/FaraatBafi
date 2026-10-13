@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فرم مقاله | مدیریت فرت‌بافی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body class="admin-layout">
+  <!--#include file="../shared/partials/admin-sidebar.html" -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>افزودن/ویرایش مقاله</h1>
+      <a href="posts.html" class="btn btn--secondary"><i class="ti ti-arrow-right"></i> بازگشت</a>
+    </header>
+
+    <form class="admin-form" onsubmit="event.preventDefault(); showToast('مقاله با موفقیت ذخیره شد', 'success');">
+      <div class="form-section">
+        <h3>اطلاعات اصلی</h3>
+        <div class="form-group"><label>عنوان مقاله</label><input class="input" type="text" placeholder="عنوان مقاله را وارد کنید" required></div>
+        <div class="form-row">
+          <div class="form-group"><label>دسته‌بندی</label><select class="select"><option>آموزش بافت</option><option>اخبار تعاونی</option><option>داستان برند</option></select></div>
+          <div class="form-group"><label>وضعیت</label><select class="select"><option>پیش‌نویس</option><option>منتشر شده</option></select></div>
+        </div>
+        <div class="form-group"><label>خلاصه</label><textarea class="textarea" rows="3" placeholder="خلاصه‌ای از مقاله..."></textarea></div>
+        <div class="form-group"><label>متن کامل</label><textarea class="textarea" rows="12" placeholder="محتوای اصلی مقاله..."></textarea></div>
+      </div>
+      <div class="form-section">
+        <h3>تصویر شاخص</h3>
+        <div class="upload-area">
+          <i class="ti ti-cloud-upload"></i>
+          <p>برای بارگذاری کلیک کنید یا فایل را اینجا رها کنید</p>
+          <small>حداکثر ۲ مگابایت - jpg, png</small>
+          <input type="file" style="display:none;">
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn"><i class="ti ti-device-floppy"></i> ذخیره</button>
+        <button type="button" class="btn btn--secondary">پیش‌نمایش</button>
+      </div>
+    </form>
+  </main>
+  <div class="toast-container"></div>
+  <script src="../../assets/js/app.js"></script>
+</body>
+</html>

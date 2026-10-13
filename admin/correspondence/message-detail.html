@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جزئیات پیام | فرت‌بافی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body class="admin-layout">
+  <!--#include file="../shared/partials/admin-sidebar.html" -->
+  <main class="admin-main">
+    <header class="admin-header"><h1>موضوع: بررسی بودجه</h1></header>
+    <div class="card" style="margin-bottom: var(--space-md);">
+      <p><strong>فرستنده:</strong> حسن کریمی</p>
+      <p><strong>تاریخ:</strong> ۱۴۰۳/۰۲/۱۲ - ۱۰:۳۰</p>
+      <p>متن نامه: لطفاً گزارش مالی سه ماهه را تا پایان هفته ارائه دهید.</p>
+      <p><a href="#">پیوست: فایل بودجه.pdf</a></p>
+    </div>
+    <div class="card">
+      <h3>پاسخ</h3>
+      <form onsubmit="event.preventDefault(); showToast('پاسخ ارسال شد', 'success');">
+        <textarea class="textarea" rows="3" placeholder="پاسخ خود را بنویسید..."></textarea>
+        <button type="submit" class="btn btn--sm" style="margin-top: var(--space-sm);"><i class="ti ti-send"></i> ارسال پاسخ</button>
+      </form>
+    </div>
+  </main>
+  <div class="toast-container"></div>
+  <script src="../../assets/js/app.js"></script>
+</body>
+</html>

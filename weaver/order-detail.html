@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جزئیات سفارش | پنل بافنده</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/weaver.css">
+</head>
+<body class="weaver-panel">
+  <div class="weaver-layout">
+    <header class="weaver-header">
+      <a href="dashboard.html" style="float: right; color: var(--color-text-secondary);"><i class="ti ti-arrow-right"></i></a>
+      <h2>جزئیات سفارش</h2>
+    </header>
+
+    <div class="weaver-content">
+      <div class="card order-card">
+        <div class="order-header">
+          <h3>حوله دستی (کد ۴۰۱)</h3>
+          <span class="badge badge--warning">در دست بافت</span>
+        </div>
+
+        <div style="margin: var(--space-md) 0; padding: var(--space-md); background: var(--color-surface); border-radius: var(--radius-sm);">
+          <div class="order-deadline">⏳ موعد تحویل: <strong>۴ روز دیگر</strong> (۱۶ اردیبهشت ۱۴۰۳)</div>
+        </div>
+
+        <div style="margin-top: var(--space-md);">
+          <h4 style="margin-bottom: var(--space-sm);">مشخصات محصول</h4>
+          <p style="color: var(--color-text-muted);"><i class="ti ti-ruler"></i> ابعاد: ۵۰×۱۰۰ سانتی‌متر</p>
+          <p style="color: var(--color-text-muted);"><i class="ti ti-palette"></i> رنگ: نیلی</p>
+          <p style="color: var(--color-text-muted);"><i class="ti ti-package"></i> تعداد: ۵ عدد</p>
+          <p style="color: var(--color-text-muted);"><i class="ti ti-coin"></i> دستمزد هر عدد: ۸۵,۰۰۰ تومان</p>
+        </div>
+      </div>
+
+      <!-- نوار پیشرفت -->
+      <div class="progress-tracker" data-status="3" style="margin: var(--space-xl) 0;">
+        <div class="progress-step completed">
+          <div class="node"><i class="ti ti-check"></i></div>
+          <span>سفارش ثبت شد</span>
+        </div>
+        <div class="progress-step completed">
+          <div class="node"><i class="ti ti-check"></i></div>
+          <span>مواد تحویل شد</span>
+        </div>
+        <div class="progress-step completed">
+          <div class="node"><i class="ti ti-check"></i></div>
+          <span>در دست بافت</span>
+        </div>
+        <div class="progress-step">
+          <div class="node">4</div>
+          <span>تحویل انبار</span>
+        </div>
+      </div>
+
+      <!-- دکمه‌های عملیاتی -->
+      <div class="action-buttons">
+        <button class="action-btn accent" onclick="if(confirm('آیا از تحویل محصول به انبار اطمینان دارید؟')) { showToast('محصول با موفقیت به انبار تحویل داده شد', 'success'); }">
+          <i class="ti ti-truck-delivery"></i>
+          <span>اعلام تحویل به انبار</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- نوار پایین -->
+    <div class="weaver-bottom-nav">
+      <a href="dashboard.html"><i class="ti ti-list-details"></i><span>سفارش‌ها</span></a>
+      <a href="my-materials.html"><i class="ti ti-package"></i><span>مواد من</span></a>
+      <a href="profile.html"><i class="ti ti-user"></i><span>پروفایل</span></a>
+    </div>
+  </div>
+
+  <div class="toast-container"></div>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/progress.js"></script>
+</body>
+</html>

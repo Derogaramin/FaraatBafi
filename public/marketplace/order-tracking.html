@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پیگیری سفارش | فرت‌بافی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/public.css">
+</head>
+<body>
+  <header class="public-header">
+    <div class="container">
+      <a href="catalog.html" class="logo"><i class="ti ti-shirt"></i> فرت‌بافی</a>
+      <nav class="main-nav">
+        <a href="catalog.html">بازارگاه</a>
+        <a href="../blog/list.html">وبلاگ</a>
+        <a href="#">درباره ما</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: var(--space-xl); max-width: 700px;">
+    <h1 style="margin-bottom: var(--space-lg);">پیگیری سفارش</h1>
+
+    <!-- فرم جستجوی سفارش -->
+    <div class="card" style="margin-bottom: var(--space-xl);">
+      <form onsubmit="event.preventDefault(); document.getElementById('tracking-result').style.display='block';">
+        <div style="display: flex; gap: var(--space-md);">
+          <input class="input" type="text" placeholder="شماره سفارش خود را وارد کنید (مثال: FB-14031205)" required>
+          <button type="submit" class="btn"><i class="ti ti-search"></i> پیگیری</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- نتیجه پیگیری -->
+    <div id="tracking-result" class="card" style="display: none;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg);">
+        <h2>سفارش #FB-14031205</h2>
+        <span class="badge badge--warning">در حال ارسال</span>
+      </div>
+      <p style="color: var(--color-text-muted); margin-bottom: var(--space-lg);">
+        <i class="ti ti-calendar"></i> تاریخ ثبت: ۱۲ اردیبهشت ۱۴۰۳
+        <span style="margin-right: var(--space-lg);"><i class="ti ti-truck"></i> کد رهگیری: ۱۲۳۴۵۶۷۸۹۰</span>
+      </p>
+
+      <!-- نوار پیشرفت -->
+      <div class="progress-tracker" data-status="3">
+        <div class="progress-step completed">
+          <div class="node"><i class="ti ti-check"></i></div>
+          <span>ثبت سفارش<br><small>۱۲ اردیبهشت</small></span>
+        </div>
+        <div class="progress-step completed">
+          <div class="node"><i class="ti ti-check"></i></div>
+          <span>آماده‌سازی<br><small>۱۳ اردیبهشت</small></span>
+        </div>
+        <div class="progress-step completed">
+          <div class="node"><i class="ti ti-check"></i></div>
+          <span>ارسال شد<br><small>۱۴ اردیبهشت</small></span>
+        </div>
+        <div class="progress-step">
+          <div class="node"><i class="ti ti-clock"></i></div>
+          <span>تحویل<br><small>در انتظار</small></span>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--space-lg);">
+        <a href="#" class="btn btn--secondary"><i class="ti ti-external-link"></i> پیگیری از طریق پست</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="public-footer">
+    <div class="container"><div class="copyright">© ۱۴۰۳ | تمامی حقوق متعلق به تعاونی فرت‌بافی است.</div></div>
+  </footer>
+
+  <div class="toast-container"></div>
+  <script src="../../assets/js/app.js"></script>
+</body>
+</html>

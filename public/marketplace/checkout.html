@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسویه حساب | فرت‌بافی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/public.css">
+</head>
+<body>
+  <header class="public-header">
+    <div class="container">
+      <a href="catalog.html" class="logo"><i class="ti ti-shirt"></i> فرت‌بافی</a>
+      <nav class="main-nav">
+        <a href="catalog.html">بازارگاه</a>
+        <a href="../blog/list.html">وبلاگ</a>
+        <a href="#">درباره ما</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: var(--space-xl);">
+    <h1 style="margin-bottom: var(--space-lg);">تسویه حساب</h1>
+
+    <form class="checkout-form" onsubmit="event.preventDefault(); showToast('سفارش شما با موفقیت ثبت شد. کد پیگیری: FB-14031205', 'success'); setTimeout(()=>window.location='order-tracking.html', 2000);">
+      <!-- اطلاعات ارسال -->
+      <div class="form-section">
+        <h3><i class="ti ti-map-pin"></i> آدرس ارسال</h3>
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
+          <div class="form-group"><label>نام و نام خانوادگی</label><input class="input" type="text" placeholder="مثال: مریم احمدی" required></div>
+          <div class="form-group"><label>شماره تماس</label><input class="input" type="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹" required></div>
+        </div>
+        <div class="form-group" style="margin-top: var(--space-md);"><label>استان و شهر</label>
+          <select class="select" required><option value="">انتخاب استان...</option><option>تهران</option><option>اصفهان</option><option>یزد</option></select>
+        </div>
+        <div class="form-group" style="margin-top: var(--space-md);"><label>آدرس کامل</label><textarea class="textarea" placeholder="خیابان، کوچه، پلاک، واحد..." required></textarea></div>
+        <div class="form-group" style="margin-top: var(--space-md);"><label>کد پستی</label><input class="input" type="text" placeholder="۱۰ رقمی"></div>
+      </div>
+
+      <!-- روش پرداخت -->
+      <div class="form-section">
+        <h3><i class="ti ti-credit-card"></i> روش پرداخت</h3>
+        <label style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) 0; cursor: pointer;">
+          <input type="radio" name="payment" value="online" checked> پرداخت آنلاین (درگاه بانکی)
+        </label>
+        <label style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) 0; cursor: pointer;">
+          <input type="radio" name="payment" value="card"> پرداخت کارت‌به‌کارت
+        </label>
+        <label style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) 0; cursor: pointer;">
+          <input type="radio" name="payment" value="cod"> پرداخت در محل
+        </label>
+      </div>
+
+      <!-- خلاصه نهایی -->
+      <div class="form-section">
+        <h3>خلاصه سفارش</h3>
+        <div class="summary-row"><span>حوله دست‌باف × ۲</span><span>۵۶۰,۰۰۰ تومان</span></div>
+        <div class="summary-row"><span>پارچه سنتی × ۱</span><span>۴۵۰,۰۰۰ تومان</span></div>
+        <div class="summary-row" style="color: var(--color-text-muted);"><span>هزینه ارسال</span><span>۴۵,۰۰۰ تومان</span></div>
+        <div class="summary-total"><span>جمع کل</span><span>۱,۰۵۵,۰۰۰ تومان</span></div>
+        <button type="submit" class="btn btn--accent" style="width:100%; margin-top: var(--space-lg); font-size: 1.1rem;">
+          <i class="ti ti-check"></i> ثبت و پرداخت نهایی
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="public-footer">
+    <div class="container"><div class="copyright">© ۱۴۰۳ | تمامی حقوق متعلق به تعاونی فرت‌بافی است.</div></div>
+  </footer>
+
+  <div class="toast-container"></div>
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/cart.js"></script>
+</body>
+</html>

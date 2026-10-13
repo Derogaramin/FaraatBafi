@@ -1,0 +1,213 @@
+@font-face {
+    font-family: 'VazirMatn';
+    src: url('../font/VazirMatn/Vazirmatn-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatn';
+    src: url('../font/VazirMatn/Vazirmatn-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatn';
+    src: url('../font/VazirMatn/Vazirmatn-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatn';
+    src: url('../font/VazirMatn/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatn';
+    src: url('../font/VazirMatn/Vazirmatn-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatn';
+    src: url('../font/VazirMatn/Vazirmatn-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatn';
+    src: url('../font/VazirMatn/Vazirmatn-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatn';
+    src: url('../font/VazirMatn/Vazirmatn-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatn';
+    src: url('../font/VazirMatn/Vazirmatn-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatnFN';
+    src: url('../font/VazirMatn/Vazirmatn-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatnFN';
+    src: url('../font/VazirMatn/Vazirmatn-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatnFN';
+    src: url('../font/VazirMatn/Vazirmatn-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatnFN';
+    src: url('../font/VazirMatn/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatnFN';
+    src: url('../font/VazirMatn/Vazirmatn-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatnFN';
+    src: url('../font/VazirMatn/Vazirmatn-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatnFN';
+    src: url('../font/VazirMatn/Vazirmatn-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatnFN';
+    src: url('../font/VazirMatn/Vazirmatn-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirMatnFN';
+    src: url('../font/VazirMatn/Vazirmatn-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../font/VazirMatn/Vazirmatn-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../font/VazirMatn/Vazirmatn-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../font/VazirMatn/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../font/VazirMatn/Vazirmatn-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../font/VazirMatn/Vazirmatn-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../font/VazirMatn/Vazirmatn-black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirFN';
+    src: url('../font/VazirMatn/Vazirmatn-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'VazirFN';
+    src: url('../font/VazirMatn/Vazirmatn-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirFN';
+    src: url('../font/VazirMatn/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirFN';
+    src: url('../font/VazirMatn/Vazirmatn-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'VazirFN';
+    src: url('../font/VazirMatn/Vazirmatn-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VazirFN';
+    src: url('../font/VazirMatn/Vazirmatn-black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}

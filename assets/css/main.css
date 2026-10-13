@@ -1,0 +1,249 @@
+/* assets/css/main.css */
+/* استایل‌های پایه - هویت بصری برند Faraat (فرت) */
+
+/* ===== ریست و تنظیمات پایه ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.8;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== لینک‌ها ===== */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* ===== دکمه‌ها ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  height: var(--height-btn);
+  padding: 0 var(--space-lg);
+  border-radius: var(--radius-btn);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.btn:hover {
+  background: var(--color-primary-hover);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 30, 63, 0.3);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--secondary {
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.btn--secondary:hover {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.btn--accent {
+  background: var(--color-secondary);
+  color: #FFFFFF;
+}
+.btn--accent:hover {
+  background: var(--color-secondary-hover);
+  box-shadow: 0 4px 12px rgba(27, 168, 161, 0.3);
+}
+
+.btn--sm {
+  height: 36px;
+  padding: 0 var(--space-md);
+  font-size: 0.875rem;
+}
+
+.btn--icon {
+  width: var(--height-btn);
+  padding: 0;
+  justify-content: center;
+}
+
+/* ===== کارت‌ها (Cards) ===== */
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-lg);
+  transition: all 0.3s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-primary);
+}
+
+/* ===== ورودی‌ها (Inputs) ===== */
+.input, .select, .textarea {
+  width: 100%;
+  height: var(--height-input);
+  padding: 0 var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  background: var(--color-card);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.textarea {
+  height: auto;
+  padding-top: var(--space-sm);
+  min-height: 120px;
+}
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 1;
+}
+
+/* ===== برچسب‌های وضعیت (Status Pills) ===== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.badge--warning { background: var(--color-warning-light); color: var(--color-warning); }
+.badge--success { background: var(--color-success-light); color: var(--color-success); }
+.badge--danger { background: var(--color-danger-light); color: var(--color-danger); }
+.badge--info { background: var(--color-info-light); color: var(--color-info); }
+
+/* ===== جداول (Tables) ===== */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+thead th {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font-weight: 700;
+  padding: var(--space-md);
+  text-align: right;
+  border-bottom: 2px solid var(--color-primary);
+}
+tbody td {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+tbody tr:nth-child(even) {
+  background: rgba(244, 235, 208, 0.3);
+}
+tbody tr:hover {
+  background: var(--color-primary-light);
+}
+
+/* ===== هدرها ===== */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.1rem; }
+
+/* ===== کانتینر ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* ===== نوار پیشرفت (Progress Bar) مخصوص سفارش/تولید ===== */
+.progress-tracker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: var(--space-xl) 0;
+}
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+.progress-step::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-border);
+  z-index: 1;
+  transform: translateY(-50%);
+}
+.progress-step:first-child::before { left: 50%; }
+.progress-step:last-child::before { right: 50%; }
+.progress-step .node {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-card);
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 2;
+  color: var(--color-text-secondary);
+  transition: all 0.3s;
+}
+.progress-step.completed .node {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+.progress-step.completed::before {
+  background: var(--color-primary);
+}
+.progress-step span {
+  margin-top: var(--space-sm);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}

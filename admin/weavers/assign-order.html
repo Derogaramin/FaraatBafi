@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تخصیص سفارش | فرت‌بافی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body class="admin-layout">
+  <!--#include file="../shared/partials/admin-sidebar.html" -->
+  <main class="admin-main">
+    <header class="admin-header"><h1>تخصیص سفارش به بافنده</h1></header>
+    <div class="card" style="margin-bottom: var(--space-lg);">
+      <h3>سفارش #FB-1200</h3>
+      <p>مشتری: علی رضایی | مبلغ: ۲۸۰,۰۰۰ تومان | محصول: حوله دستی (۲ عدد)</p>
+    </div>
+    <div class="card">
+      <h3>انتخاب بافنده</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>بافنده</th><th>مهارت</th><th>ظرفیت آزاد</th><th>امتیاز</th><th>انتخاب</th></tr></thead>
+          <tbody>
+            <tr><td>فاطمه محمدی</td><td>حوله‌بافی</td><td>۳ عدد</td><td>۹۰٪ تحویل به‌موقع</td><td><button class="btn btn--sm btn--accent" onclick="showToast('سفارش به فاطمه محمدی تخصیص یافت','success')">تخصیص</button></td></tr>
+            <tr><td>زهرا حسینی</td><td>حوله‌بافی</td><td>۱ عدد</td><td>۸۵٪</td><td><button class="btn btn--sm btn--accent">تخصیص</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top: var(--space-md);"><label><input type="checkbox"> تخصیص خودکار بر اساس اولویت</label></p>
+    </div>
+  </main>
+  <div class="toast-container"></div>
+  <script src="../../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پیشخوان مدیریت | فرت‌بافی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="admin-layout">
+  <!-- سایدبار -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-logo">🏺 فرت‌بافی</div>
+    <ul class="sidebar-menu">
+      <li class="menu-group-title">اصلی</li>
+      <li><a href="dashboard.html" class="active"><i class="ti ti-layout-dashboard"></i> پیشخوان</a></li>
+      <li class="menu-group-title">فروشگاه و محتوا</li>
+      <li><a href="marketplace/orders.html"><i class="ti ti-clipboard-list"></i> سفارش‌ها</a></li>
+      <li><a href="marketplace/products.html"><i class="ti ti-box"></i> محصولات</a></li>
+      <li><a href="blog/posts.html"><i class="ti ti-article"></i> مقالات</a></li>
+      <li class="menu-group-title">تولید و زنجیره تأمین</li>
+      <li><a href="weavers/list.html"><i class="ti ti-affiliate"></i> بافندگان</a></li>
+      <li><a href="production/order-track.html"><i class="ti ti-progress"></i> ردیابی تولید</a></li>
+      <li><a href="inventory/materials.html"><i class="ti ti-packages"></i> انبار</a></li>
+      <li><a href="quality/inspection-form.html"><i class="ti ti-zoom-check"></i> کنترل کیفیت</a></li>
+      <li class="menu-group-title">فروش و لجستیک</li>
+      <li><a href="agencies/list.html"><i class="ti ti-building-store"></i> نمایندگی‌ها</a></li>
+      <li><a href="logistics/fulfillment.html"><i class="ti ti-truck"></i> حمل‌ونقل</a></li>
+      <li class="menu-group-title">سازمان و مالی</li>
+      <li><a href="hr/members.html"><i class="ti ti-users"></i> اعضا</a></li>
+      <li><a href="correspondence/inbox.html"><i class="ti ti-mail"></i> مکاتبات</a></li>
+      <li><a href="financial/payroll.html"><i class="ti ti-cash"></i> مالی</a></li>
+      <li class="menu-group-title">دانش و گزارش‌ها</li>
+      <li><a href="knowledge/library.html"><i class="ti ti-books"></i> کتابخانه</a></li>
+      <li><a href="bi/performance.html"><i class="ti ti-chart-bar"></i> هوش تجاری</a></li>
+    </ul>
+  </aside>
+
+  <!-- محتوای اصلی -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>پیشخوان مدیریت</h1>
+      <div class="admin-user">
+        <span>مدیر سیستم</span>
+        <img src="../assets/images/product-placeholder.png" alt="admin">
+      </div>
+    </header>
+
+    <!-- KPI Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="ti ti-shopping-cart"></i></div>
+        <div>
+          <div class="kpi-value">۱۲</div>
+          <div class="kpi-label">سفارش امروز</div>
+          <div class="kpi-change up"><i class="ti ti-arrow-up"></i> ۸٪</div>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="ti ti-cash"></i></div>
+        <div>
+          <div class="kpi-value">۸.۵ میلیون</div>
+          <div class="kpi-label">درآمد ماه جاری</div>
+          <div class="kpi-change up"><i class="ti ti-arrow-up"></i> ۱۲٪</div>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="ti ti-affiliate"></i></div>
+        <div>
+          <div class="kpi-value">۴۸</div>
+          <div class="kpi-label">بافنده فعال</div>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="ti ti-zoom-check"></i></div>
+        <div>
+          <div class="kpi-value">۳</div>
+          <div class="kpi-label">نیازمند بازرسی</div>
+          <div class="kpi-change down"><i class="ti ti-alert-circle"></i> فوری</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- نمودارها -->
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-xl);">
+      <div class="card" style="padding: var(--space-lg);">
+        <h3>فروش ۷ روز گذشته</h3>
+        <div style="height: 300px;"><canvas id="salesChart"></canvas></div>
+      </div>
+      <div class="card" style="padding: var(--space-lg);">
+        <h3>وضعیت سفارش‌ها</h3>
+        <div style="height: 300px;"><canvas id="ordersChart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- جدول سفارش‌های اخیر -->
+    <div class="card" style="padding: var(--space-lg);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
+        <h3>آخرین سفارش‌ها</h3>
+        <a href="marketplace/orders.html" class="btn btn--sm btn--secondary">مشاهده همه</a>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>شماره</th><th>مشتری</th><th>مبلغ</th><th>بافنده</th><th>وضعیت</th><th>عملیات</th></tr></thead>
+          <tbody>
+            <tr><td>FB-1201</td><td>مریم احمدی</td><td>۶۵۰,۰۰۰</td><td>فاطمه محمدی</td><td><span class="badge badge--warning">در دست بافت</span></td><td><a href="marketplace/order-detail.html" class="btn btn--sm btn--secondary"><i class="ti ti-eye"></i></a></td></tr>
+            <tr><td>FB-1200</td><td>علی رضایی</td><td>۲۸۰,۰۰۰</td><td>زهرا حسینی</td><td><span class="badge badge--success">تحویل شد</span></td><td><a href="marketplace/order-detail.html" class="btn btn--sm btn--secondary"><i class="ti ti-eye"></i></a></td></tr>
+            <tr><td>FB-1199</td><td>حسین مرادی</td><td>۴۵۰,۰۰۰</td><td>-</td><td><span class="badge badge--info">در انتظار تخصیص</span></td><td><a href="weavers/assign-order.html" class="btn btn--sm btn--accent">تخصیص</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast-container"></div>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

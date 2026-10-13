@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ارسال نامه داخلی | فرت‌بافی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body class="admin-layout">
+  <!--#include file="../shared/partials/admin-sidebar.html" -->
+  <main class="admin-main">
+    <header class="admin-header"><h1>ارسال نامه داخلی</h1></header>
+    <div class="card" style="max-width: 600px;">
+      <form onsubmit="event.preventDefault(); showToast('نامه ارسال شد', 'success');">
+        <div class="form-group">
+          <label>گیرنده</label>
+          <select class="select"><option>حسن کریمی</option><option>زهرا رضایی</option></select>
+        </div>
+        <div class="form-group">
+          <label>موضوع</label>
+          <input class="input" type="text" required>
+        </div>
+        <div class="form-group">
+          <label>متن</label>
+          <textarea class="textarea" rows="6" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>پیوست</label>
+          <input class="input" type="file">
+        </div>
+        <button type="submit" class="btn"><i class="ti ti-send"></i> ارسال</button>
+      </form>
+    </div>
+  </main>
+  <div class="toast-container"></div>
+  <script src="../../assets/js/app.js"></script>
+</body>
+</html>

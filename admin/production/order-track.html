@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ردیابی تولید | فرت‌بافی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body class="admin-layout">
+  <!--#include file="../shared/partials/admin-sidebar.html" -->
+  <main class="admin-main">
+    <header class="admin-header"><h1>ردیابی تولید سفارش‌ها</h1></header>
+    <div class="filter-bar">
+      <div class="filter-group"><label>وضعیت:</label><select class="select"><option>همه</option><option>تخصیص‌یافته</option><option>مواد تحویل شد</option><option>در دست بافت</option><option>تحویل انبار</option></select></div>
+      <input class="input" type="text" placeholder="جستجوی شماره سفارش..." style="width:200px;">
+    </div>
+    <div class="card">
+      <table>
+        <thead><tr><th>شماره سفارش</th><th>بافنده</th><th>مرحله</th><th>تاریخ تخمینی</th><th>پیشرفت</th><th>عملیات</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>FB-1201</td><td>فاطمه محمدی</td><td>در دست بافت</td><td>۱۶ اردیبهشت</td>
+            <td>
+              <div class="progress-tracker" data-status="3" style="margin:0;">
+                <div class="progress-step completed"><div class="node" style="width:20px;height:20px;font-size:0.7rem;"><i class="ti ti-check"></i></div></div>
+                <div class="progress-step completed"><div class="node" style="width:20px;height:20px;font-size:0.7rem;"><i class="ti ti-check"></i></div></div>
+                <div class="progress-step completed"><div class="node" style="width:20px;height:20px;font-size:0.7rem;"><i class="ti ti-check"></i></div></div>
+                <div class="progress-step"><div class="node" style="width:20px;height:20px;font-size:0.7rem;">4</div></div>
+              </div>
+            </td>
+            <td><button class="btn btn--sm"><i class="ti ti-eye"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <script src="../../assets/js/app.js"></script>
+</body>
+</html>

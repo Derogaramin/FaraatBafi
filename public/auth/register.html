@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ثبت‌نام | فرت‌بافی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/public.css">
+</head>
+<body class="auth-page">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <h1>🏺 فرت‌بافی</h1>
+      <p>ایجاد حساب کاربری</p>
+    </div>
+
+    <form onsubmit="event.preventDefault(); showToast('ثبت‌نام با موفقیت انجام شد. خوش آمدید!', 'success'); setTimeout(()=>window.location='../marketplace/catalog.html', 1500);">
+      <div class="form-group">
+        <label>نام و نام خانوادگی</label>
+        <input class="input" type="text" placeholder="مثال: مریم احمدی" required>
+      </div>
+      <div class="form-group">
+        <label>شماره تماس</label>
+        <input class="input" type="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹" required>
+      </div>
+      <div class="form-group">
+        <label>ایمیل</label>
+        <input class="input" type="email" placeholder="example@email.com">
+      </div>
+      <div class="form-group">
+        <label>رمز عبور</label>
+        <input class="input" type="password" placeholder="حداقل ۸ کاراکتر" required>
+      </div>
+      <div class="form-group">
+        <label>تکرار رمز عبور</label>
+        <input class="input" type="password" placeholder="تکرار رمز عبور" required>
+      </div>
+      <div style="margin-bottom: var(--space-md);">
+        <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer;">
+          <input type="checkbox" required> <a href="#">قوانین و مقررات</a> را می‌پذیرم
+        </label>
+      </div>
+      <button type="submit" class="btn" style="width:100%;"><i class="ti ti-user-plus"></i> ثبت‌نام</button>
+    </form>
+
+    <div class="auth-footer">
+      قبلاً ثبت‌نام کرده‌اید؟ <a href="login.html">ورود</a>
+    </div>
+  </div>
+  <div class="toast-container"></div>
+  <script src="../../assets/js/app.js"></script>
+</body>
+</html>

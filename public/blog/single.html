@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>آشنایی با طرح‌های سنتی فرت‌بافی | وبلاگ فرت‌بافی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/fonts/webfonts/Vazirmatn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/public.css">
+</head>
+<body>
+  <header class="public-header">
+    <div class="container">
+      <a href="../marketplace/catalog.html" class="logo"><i class="ti ti-shirt"></i> فرت‌بافی</a>
+      <nav class="main-nav">
+        <a href="../marketplace/catalog.html">بازارگاه</a>
+        <a href="list.html" class="active">وبلاگ</a>
+        <a href="#">درباره ما</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container blog-single" style="padding-top: var(--space-xl);">
+    <div class="blog-header">
+      <span class="badge badge--info" style="margin-bottom: var(--space-sm);">آموزش بافت</span>
+      <h1>آشنایی با طرح‌های سنتی فرت‌بافی</h1>
+      <p style="color: var(--color-text-muted);">نویسنده: زهرا رضایی | ۱۲ اردیبهشت ۱۴۰۳ | ۵ دقیقه مطالعه</p>
+    </div>
+
+    <img src="../../assets/images/product-placeholder.png" alt="طرح سنتی" style="width:100%; border-radius: var(--radius-card); margin-bottom: var(--space-xl);">
+
+    <div class="blog-content">
+      <p>فرت‌بافی یکی از اصیل‌ترین هنرهای نساجی سنتی ایران است که قدمتی چندصدساله دارد. این هنر که عمدتاً در مناطق مرکزی ایران رواج داشته، شامل بافت پارچه‌های دست‌باف با استفاده از دستگاه‌های سنتی است.</p>
+      <p>طرح‌های متنوعی در فرت‌بافی وجود دارد که هرکدام داستان و کاربرد خاص خود را دارند. از طرح‌های راه‌راه ساده گرفته تا طرح‌های پیچیده هندسی که نیازمند مهارت بالای بافنده است.</p>
+      <h2>طرح‌های رایج</h2>
+      <p>از جمله طرح‌های رایج می‌توان به طرح «چهارخانه»، «جناغی»، «گل فرنگ» و «محرمات» اشاره کرد. هر یک از این طرح‌ها الهام‌گرفته از طبیعت و فرهنگ منطقه است.</p>
+      <h2>ابزار و مواد اولیه</h2>
+      <p>برای بافت یک پارچه سنتی، ابزارهایی مانند دستگاه بافندگی چوبی، ماسوره، و مواد اولیه‌ای مانند نخ پنبه‌ای و رنگ‌های گیاهی نیاز است. رنگ‌های گیاهی از موادی مانند پوست گردو، روناس و نیل استخراج می‌شوند.</p>
+    </div>
+
+    <!-- بخش نظرات -->
+    <div class="comments-section">
+      <h3>نظرات (۲)</h3>
+
+      <div class="comment">
+        <div class="comment-author">علی محمدی</div>
+        <div class="comment-date">۱۳ اردیبهشت ۱۴۰۳</div>
+        <p>بسیار عالی و آموزنده بود. ممنون از توضیحات کامل.</p>
+      </div>
+
+      <div class="comment">
+        <div class="comment-author">سارا حسینی</div>
+        <div class="comment-date">۱۴ اردیبهشت ۱۴۰۳</div>
+        <p>لطفاً در مورد رنگ‌های گیاهی بیشتر توضیح دهید.</p>
+      </div>
+
+      <!-- فرم ارسال نظر -->
+      <form style="margin-top: var(--space-lg);" onsubmit="event.preventDefault(); showToast('نظر شما با موفقیت ثبت شد و پس از تأیید نمایش داده می‌شود', 'success');">
+        <h4>ارسال نظر</h4>
+        <div class="form-group" style="margin-bottom: var(--space-md);">
+          <label>نام</label>
+          <input class="input" type="text" required>
+        </div>
+        <div class="form-group" style="margin-bottom: var(--space-md);">
+          <label>متن نظر</label>
+          <textarea class="textarea" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn"><i class="ti ti-send"></i> ارسال نظر</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="public-footer">
+    <div class="container"><div class="copyright">© ۱۴۰۳ | تمامی حقوق متعلق به تعاونی فرت‌بافی است.</div></div>
+  </footer>
+
+  <div class="toast-container"></div>
+  <script src="../../assets/js/app.js"></script>
+</body>
+</html>
