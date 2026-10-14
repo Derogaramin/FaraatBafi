@@ -1,0 +1,234 @@
+/* ============================================================
+   components-extra.css — اجزای بهبودیافتهٔ رابط
+   سبد کشویی | هیرو کولاژ | حلقهٔ پیشرفت | دونات وضعیت |
+   نوار خرید چسبان | ورود دومنظری | نمایان‌شدن با اسکرول
+   ============================================================ */
+
+/* ─────────── سبد خرید کشویی ─────────── */
+.drawer-backdrop {
+  position: fixed; inset: 0; z-index: 1200;
+  background: rgba(23, 17, 12, .5); backdrop-filter: blur(2px);
+  opacity: 0; pointer-events: none; transition: opacity .25s;
+}
+.drawer-backdrop.is-open { opacity: 1; pointer-events: auto; }
+
+.cart-drawer {
+  position: fixed; top: 0; bottom: 0; left: 0; z-index: 1210;
+  width: min(420px, 100vw); display: flex; flex-direction: column;
+  background: var(--color-surface);
+  border-inline-end: 1px solid var(--color-border);
+  box-shadow: var(--shadow-pop);
+  transform: translateX(-105%);
+  transition: transform .32s cubic-bezier(.21,1.02,.73,1);
+}
+.cart-drawer.is-open { transform: translateX(0); }
+.cart-drawer .drawer__body { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.cart-drawer .drawer__loading { padding: var(--space-6); text-align: center; color: var(--color-text-muted); }
+
+.drawer__head {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+  padding: var(--space-4) var(--space-4); border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+.drawer__head h3 { margin: 0; font-size: 1rem; display: flex; align-items: center; gap: var(--space-2); }
+
+.drawer__items { flex: 1; overflow-y: auto; padding: var(--space-3) var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); }
+.drawer-item { display: flex; gap: var(--space-3); align-items: center; padding: var(--space-2); border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); transition: border-color .15s; }
+.drawer-item:hover { border-color: var(--color-border-strong); }
+.drawer-item__img { width: 64px; height: 64px; border-radius: var(--radius-btn); object-fit: cover; flex-shrink: 0; background: var(--color-bg-subtle); }
+.drawer-item__info { flex: 1; min-width: 0; }
+.drawer-item__info b { font-size: .85rem; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.drawer-item__remove { border: none; background: none; color: var(--color-text-muted); cursor: pointer; padding: 8px; border-radius: var(--radius-sm); transition: all .15s; flex-shrink: 0; }
+.drawer-item__remove:hover { color: var(--color-danger); background: var(--color-danger-light); }
+
+.drawer__foot { padding: var(--space-4); border-top: 1px solid var(--color-border); background: var(--color-surface-2); }
+.drawer-freeship .progress { height: 6px; }
+
+.drawer__empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-4); color: var(--color-text-muted); padding: var(--space-6); text-align: center; }
+.drawer__empty .icon { width: 52px; height: 52px; color: var(--color-border-strong); }
+
+/* ─────────── هیرو: کولاژ تصویری ─────────── */
+.hero__collage { position: relative; aspect-ratio: 1.05; max-width: 520px; margin-inline: auto; }
+.hero__collage .tile {
+  position: absolute; border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow-pop); border: 3px solid color-mix(in srgb, var(--color-surface) 70%, transparent);
+  transition: transform .5s cubic-bezier(.21,1.02,.73,1);
+}
+.hero__collage .tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero__collage .tile--1 { inset: 0 18% 22% 0; z-index: 2; }
+.hero__collage .tile--2 { inset: 26% 0 34% 34%; z-index: 3; }
+.hero__collage .tile--3 { inset: 52% 22% 0 6%; z-index: 1; }
+.hero__collage:hover .tile--1 { transform: translate(-6px, -4px) rotate(-1.5deg); }
+.hero__collage:hover .tile--2 { transform: translate(4px, -8px) rotate(1deg); }
+.hero__collage:hover .tile--3 { transform: translate(-2px, 6px) rotate(-1deg); }
+
+.hero__qr-badge {
+  position: absolute; bottom: 4%; inset-inline-end: 2%; z-index: 5;
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-card); box-shadow: var(--shadow-pop);
+  padding: var(--space-3); display: flex; align-items: center; gap: var(--space-2);
+  font-size: .74rem; font-weight: 700; color: var(--color-text);
+  animation: float 5s ease-in-out infinite;
+}
+.hero__qr-badge svg.qr-mini { width: 40px; height: 40px; border-radius: 6px; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+
+/* ─────────── حلقهٔ پیشرفت (پنل بافنده) ─────────── */
+.ring { position: relative; width: 56px; height: 56px; flex-shrink: 0; }
+.ring svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+.ring__track { stroke: var(--color-bg-subtle); }
+.ring__bar { stroke: var(--ring-color, var(--color-primary)); stroke-linecap: round; transition: stroke-dashoffset 1s cubic-bezier(.21,1.02,.73,1); }
+.ring__label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: .72rem; font-weight: 900; color: var(--ring-color, var(--color-primary)); }
+
+/* ─────────── دونات وضعیت تولید (داشبورد مدیر) ─────────── */
+.donut-wrap { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+.donut {
+  --e1: 0; --e2: 0; --e3: 0; --e4: 0; --e5: 0;
+  width: 148px; height: 148px; border-radius: 50%; flex-shrink: 0; position: relative;
+  background: conic-gradient(
+    var(--color-info)      0turn                 calc(var(--e1) * 1turn),
+    var(--color-secondary) calc(var(--e1) * 1turn) calc(var(--e2) * 1turn),
+    var(--color-warning)   calc(var(--e2) * 1turn) calc(var(--e3) * 1turn),
+    var(--color-primary)   calc(var(--e3) * 1turn) calc(var(--e4) * 1turn),
+    var(--color-success)   calc(var(--e4) * 1turn) calc(var(--e5) * 1turn),
+    var(--color-bg-subtle) calc(var(--e5) * 1turn) 1turn
+  );
+}
+.donut::after {
+  content: ''; position: absolute; inset: 26px; border-radius: 50%;
+  background: var(--color-surface); box-shadow: inset 0 1px 4px rgba(0,0,0,.08);
+}
+.donut__center { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.donut__center b { font-size: 1.3rem; font-weight: 900; line-height: 1.2; }
+.donut__center span { font-size: .64rem; color: var(--color-text-muted); }
+.donut-legend { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 150px; }
+.donut-legend a { display: flex; align-items: center; gap: 8px; font-size: .78rem; color: var(--color-text-secondary); padding: 3px 6px; border-radius: var(--radius-sm); }
+.donut-legend a:hover { background: var(--color-bg-subtle); }
+.donut-legend .dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.donut-legend b { margin-inline-start: auto; font-feature-settings: "tnum"; }
+
+/* ─────────── نوار خرید چسبان موبایل (صفحهٔ محصول) ─────────── */
+.sticky-buy {
+  position: fixed; bottom: 0; inset-inline: 0; z-index: 940;
+  display: none; gap: var(--space-3); align-items: center;
+  padding: var(--space-3) var(--space-4) calc(var(--space-3) + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--color-border); box-shadow: 0 -6px 24px rgba(0,0,0,.08);
+}
+.sticky-buy .price { font-size: .95rem; }
+@media (max-width: 720px) { .sticky-buy { display: flex; } body.has-sticky-buy { padding-bottom: 86px; } }
+
+/* ─────────── صفحهٔ ورود دومنظری (split) ─────────── */
+@media (min-width: 960px) {
+  .auth-page { padding: 0; display: grid; grid-template-columns: 1.05fr .95fr; min-height: 100vh; align-items: stretch; }
+  .auth-page > div:first-of-type { display: flex; align-items: center; justify-content: center; padding: var(--space-6); }
+  .auth-aside {
+    display: flex !important; flex-direction: column; justify-content: center; gap: var(--space-5);
+    position: relative; overflow: hidden; padding: var(--space-8);
+    background:
+      radial-gradient(ellipse at 20% 15%, rgba(194,168,120,.25), transparent 55%),
+      linear-gradient(150deg, var(--color-primary) 0%, #57202A 55%, #2C1116 100%);
+    color: #F5E7C8;
+  }
+  .auth-aside::after { content:''; position:absolute; inset:0; background-image: var(--pattern-hero); opacity:.4; pointer-events:none; }
+  .auth-aside > * { position: relative; z-index: 1; }
+  .auth-aside blockquote { margin: 0; font-size: 1.5rem; font-weight: 700; line-height: 2.1; }
+  .auth-aside cite { font-size: .85rem; opacity: .8; font-style: normal; }
+  .auth-aside .aside-stats { display: flex; gap: var(--space-6); margin-top: var(--space-4); }
+  .auth-aside .aside-stats b { display: block; font-size: 1.6rem; font-weight: 900; }
+  .auth-aside .aside-stats span { font-size: .75rem; opacity: .8; }
+  .auth-aside .aside-img { display: flex; gap: var(--space-3); }
+  .auth-aside .aside-img img { width: 92px; height: 92px; object-fit: cover; border-radius: var(--radius-card); border: 2px solid rgba(245,231,200,.4); box-shadow: 0 8px 20px rgba(0,0,0,.3); }
+}
+.auth-aside { display: none; }
+
+/* ─────────── نمایان‌شدن با اسکرول ─────────── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s cubic-bezier(.21,1.02,.73,1); }
+.reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero__qr-badge { animation: none; }
+  .hero__collage .tile { transition: none; }
+}
+
+/* ─────────── چیپ‌های نوع در کاتالوگ ─────────── */
+.type-chips { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-4); }
+.type-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 16px; border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border-strong); background: var(--color-surface);
+  font-size: .82rem; font-weight: 600; color: var(--color-text-secondary);
+  transition: all .15s; cursor: pointer;
+}
+.type-chip:hover { border-color: var(--color-primary); color: var(--color-primary); transform: translateY(-1px); }
+.type-chip.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; box-shadow: var(--shadow-card); }
+.type-chip .count { font-size: .68rem; opacity: .75; }
+
+.results-count { font-size: .85rem; color: var(--color-text-muted); margin-bottom: var(--space-3); }
+.results-count b { color: var(--color-primary); }
+
+/* ─────────── استعلام سریع اصالت در فوتر ─────────── */
+.footer-check { display: flex; gap: var(--space-2); margin-top: var(--space-3); }
+.footer-check input {
+  flex: 1; min-height: 42px; padding: 0 var(--space-3);
+  border-radius: var(--radius-btn); border: 1px solid var(--color-border-strong);
+  background: var(--color-surface); color: var(--color-text);
+  font-family: var(--font-code); font-size: .8rem; direction: ltr; text-align: left;
+}
+.footer-check input:focus { outline: none; border-color: var(--color-secondary); }
+
+/* ─────────── پولیش عمومی ─────────── */
+.card__title { display: flex; align-items: center; gap: var(--space-2); }
+.table-wrap { position: relative; }
+.table-wrap::after {
+  content: ''; position: sticky; bottom: 0; display: block; height: 0;
+}
+.badge .icon { width: 13px; height: 13px; }
+
+/* ─────────── انتخابگر تاریخ شمسی ─────────── */
+.jdp-pop {
+  position: absolute; z-index: 1300; width: 292px;
+  background: var(--color-surface); border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-card); box-shadow: var(--shadow-pop);
+  padding: var(--space-3); font-family: var(--font-main);
+  animation: jdp-in .16s ease;
+}
+@keyframes jdp-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.jdp-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-2); }
+.jdp-head b { font-size: .92rem; }
+.jdp-nav { border: none; background: var(--color-bg-subtle); width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 1rem; color: var(--color-text-secondary); line-height: 1; }
+.jdp-nav:hover { background: var(--color-primary-light); color: var(--color-primary); }
+.jdp-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.jdp-wd span { text-align: center; font-size: .68rem; color: var(--color-text-muted); font-weight: 700; padding: 4px 0; }
+.jdp-day {
+  border: none; background: none; cursor: pointer; height: 34px; border-radius: 8px;
+  font-family: var(--font-main); font-size: .82rem; color: var(--color-text); transition: background .12s;
+}
+.jdp-day:hover { background: var(--color-primary-light); color: var(--color-primary); }
+.jdp-today { font-weight: 900; box-shadow: inset 0 0 0 1.5px var(--color-secondary); }
+.jdp-foot { display: flex; justify-content: space-between; margin-top: var(--space-2); padding-top: var(--space-2); border-top: 1px dashed var(--color-border); }
+.jdp-foot button { border: none; background: none; cursor: pointer; font-family: var(--font-main); font-size: .78rem; font-weight: 700; color: var(--color-secondary); padding: 4px 8px; border-radius: 6px; }
+.jdp-foot button:hover { background: var(--color-secondary-light); }
+.jdp-clear { color: var(--color-text-muted) !important; }
+
+/* ─────────── دسترس‌پذیری: پیوند پرش ─────────── */
+.skip-link {
+  position: absolute; top: -48px; inset-inline-start: 12px; z-index: 2000;
+  background: var(--color-action); color: #fff; padding: 10px 18px;
+  border-radius: 0 0 10px 10px; font-weight: 700; font-size: .85rem;
+  transition: top .2s;
+}
+.skip-link:focus { top: 0; color: #fff; }
+
+/* جست‌وجوی هدر */
+.header-search { position: relative; flex: 1; max-width: 300px; }
+.header-search input {
+  width: 100%; min-height: 40px; padding: 0 38px 0 12px;
+  border-radius: var(--radius-full); border: 1px solid var(--color-border-strong);
+  background: var(--color-bg-subtle); color: var(--color-text);
+  font-family: var(--font-main); font-size: .82rem; transition: all .15s;
+}
+.header-search input:focus { outline: none; border-color: var(--color-secondary); background: var(--color-surface); box-shadow: 0 0 0 3px var(--color-secondary-light); }
+.header-search .icon { position: absolute; inset-inline-start: 12px; top: 50%; transform: translateY(-50%); color: var(--color-text-muted); pointer-events: none; }
+@media (max-width: 900px) { .header-search { display: none; } }

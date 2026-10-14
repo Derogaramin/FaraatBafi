@@ -1,0 +1,36 @@
+RewriteEngine On
+
+# اگر فایل یا پوشهٔ واقعی وجود داشت، مستقیم سرو کن
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# در غیر این صورت همه‌چیز به index.php
+RewriteRule ^ index.php [L]
+
+# امنیت
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# هدرهای امنیتی پایه
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# فشرده‌سازی
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+
+# کش دارایی‌های استاتیک
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType font/woff2 "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+    ExpiresByType image/webp "access plus 30 days"
+</IfModule>

@@ -1,0 +1,70 @@
+/* ============================================================
+   weaver.css — پنل بافنده (Mobile-first)
+   دکمه‌های بزرگ انگشتی، کارت‌های تمام‌عرض، ناوبری پایین
+   ============================================================ */
+
+.weaver-shell { min-height: 100vh; display: flex; flex-direction: column; }
+
+.weaver-topbar {
+  position: sticky; top: 0; z-index: 800;
+  display: flex; align-items: center; gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+.weaver-topbar__title { font-weight: 800; font-size: .98rem; flex: 1; }
+.weaver-topbar .avatar { width: 36px; height: 36px; font-size: .8rem; }
+
+.weaver-content { flex: 1; width: min(720px, 100%); margin-inline: auto; padding: var(--space-4) var(--space-4) calc(var(--space-8) + 60px); }
+@media (min-width: 1025px) { .weaver-content { padding-bottom: var(--space-6); } }
+
+/* سلام + تاریخ شمسی */
+.weaver-hello {
+  background: linear-gradient(135deg, var(--color-primary), #5E2029 70%);
+  border-radius: var(--radius-lg); color: #F7EBD7;
+  padding: var(--space-5); position: relative; overflow: hidden;
+  margin-bottom: var(--space-5);
+}
+.weaver-hello::after { content:''; position:absolute; inset:0; background-image: var(--pattern-hero); opacity:.28; pointer-events:none; }
+.weaver-hello h2 { color: #fff; margin: 0 0 4px; font-size: 1.2rem; position: relative; }
+.weaver-hello p { margin: 0; font-size: .82rem; opacity: .85; position: relative; }
+.weaver-hello__stats { display: flex; gap: var(--space-5); margin-top: var(--space-4); position: relative; flex-wrap: wrap; }
+.weaver-hello__stat b { display: block; font-size: 1.3rem; font-weight: 900; }
+.weaver-hello__stat span { font-size: .72rem; opacity: .8; }
+
+/* آمار کوچک */
+.weaver-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); margin-bottom: var(--space-5); }
+@media (max-width: 480px) { .weaver-stats { grid-template-columns: repeat(2, 1fr); } }
+
+/* دکمه‌های بزرگ انگشتی تغییر وضعیت */
+.big-actions { display: grid; grid-template-columns: 1fr; gap: var(--space-3); margin-top: var(--space-4); }
+.big-action {
+  min-height: 64px; width: 100%;
+  display: flex; align-items: center; justify-content: center; gap: var(--space-3);
+  border-radius: var(--radius-card); border: none;
+  font-family: inherit; font-size: 1.08rem; font-weight: 800;
+  cursor: pointer; transition: transform .12s, box-shadow .15s, filter .15s;
+  color: #fff;
+}
+.big-action:active { transform: scale(.97); }
+.big-action--materials { background: linear-gradient(135deg, var(--color-secondary), #12807B); }
+.big-action--weaving { background: linear-gradient(135deg, var(--color-warning), #A5702B); }
+.big-action--deliver { background: linear-gradient(135deg, var(--color-primary), #6A222D); }
+.big-action:hover { filter: brightness(1.07); box-shadow: var(--shadow-hover); }
+
+/* ناوبری پایین — در panel.css تعریف و اینجا تکمیل می‌شود */
+.weaver-shell .bottom-nav { display: block; }
+@media (min-width: 1025px) {
+  .weaver-shell .bottom-nav { display: none; }
+}
+
+/* لیست سفارش‌های بافنده */
+.wo-list { display: flex; flex-direction: column; gap: var(--space-4); }
+
+/* نوار وضعیت فشرده */
+.mini-steps { display: flex; gap: 4px; margin-top: var(--space-3); }
+.mini-steps span { flex: 1; height: 6px; border-radius: var(--radius-full); background: var(--color-bg-subtle); border: 1px solid var(--color-border); }
+.mini-steps span.done { background: var(--color-success); border-color: var(--color-success); }
+.mini-steps span.current { background: var(--color-primary); border-color: var(--color-primary); }
+.mini-steps span.rejected { background: var(--color-danger); border-color: var(--color-danger); }

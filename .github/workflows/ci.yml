@@ -1,0 +1,67 @@
+name: CI — سامانهٔ فرت‌بافی
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+
+    services:
+      mariadb:
+        image: mariadb:10.11
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: faraatbafi_test
+          MYSQL_USER: faraat
+          MYSQL_PASSWORD: faraat_1403
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=5s --health-timeout=5s --health-retries=20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: برپایی PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pdo_mysql, mbstring, gd, intl
+          coverage: none
+
+      - name: نصب وابستگی‌ها
+        run: composer install --no-interaction --prefer-dist
+
+      - name: PHPUnit (واحد + ویژگی)
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_USER: faraat
+          DB_PASS: faraat_1403
+        run: vendor/bin/phpunit --colors=never
+
+      - name: آماده‌سازی پایگاه دادهٔ اسموک
+        env:
+          DB_NAME: faraatbafi
+        run: |
+          mysql -h 127.0.0.1 -u root -proot -e "CREATE DATABASE IF NOT EXISTS faraatbafi CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; GRANT ALL ON faraatbafi.* TO 'faraat'@'%'; FLUSH PRIVILEGES;"
+          php bin/faraat fresh
+
+      - name: اجرای سرور و اسموک‌تست HTTP
+        run: |
+          php -S 127.0.0.1:8080 -t public > storage/logs/server.log 2>&1 &
+          sleep 2
+          bash tests/smoke.sh
+
+      - name: خزش صفحات (۶ نقش)
+        run: bash tests/crawl.sh
+
+      - name: مسیرهای ثبت‌شده (دیباگ)
+        if: failure()
+        run: |
+          php bin/faraat modules || true
+          tail -50 storage/logs/server.log || true

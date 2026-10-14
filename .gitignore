@@ -1,0 +1,26 @@
+# وابستگی‌ها
+/vendor/
+
+# محیط و اعتبارنامه‌ها
+.env.local
+
+# لاگ‌ها و حافظه‌های موقت
+/storage/logs/*.log
+/storage/cache/*
+!.storage/logs/.gitkeep
+!.storage/cache/.gitkeep
+
+# آپلودهای کاربران (تصاویر نمونهٔ محصولات نگه داشته می‌شوند)
+/public/assets/uploads/*
+!/public/assets/uploads/products/
+
+# PHPUnit
+.phpunit.cache/
+.phpunit.result.cache
+
+# سیستم‌عامل / ویرایشگر
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

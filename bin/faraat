@@ -1,0 +1,127 @@
+#!/usr/bin/env php
+<?php
+/**
+ * کنسول خط فرمان سامانهٔ فرت‌بافی
+ *
+ * دستورها:
+ *   php bin/faraat serve [port]      → اجرای سرور توسعه
+ *   php bin/faraat migrate           → اجرای مهاجرت‌ها
+ *   php bin/faraat migrate:fresh     → حذف و ساخت مجدد جداول
+ *   php bin/faraat seed              → درج دادهٔ نمونه
+ *   php bin/faraat fresh             → migrate:fresh + seed
+ *   php bin/faraat test              → اجرای تست‌ها
+ *   php bin/faraat routes            → فهرست مسیرها
+ *   php bin/faraat modules           → فهرست ماژول‌ها
+ */
+
+declare(strict_types=1);
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use Core\App;
+use Core\Config;
+use Core\Migrator;
+use Core\Modules;
+use Core\Seeder;
+
+// مقداردهی هسته بدون نشست HTTP
+App::boot(dirname(__DIR__));
+
+$command = $argv[1] ?? 'help';
+
+switch ($command) {
+    case 'serve':
+        $port = (int) ($argv[2] ?? 8080);
+        $root = dirname(__DIR__) . '/public';
+        echo "\n🧵 سرور توسعهٔ فرت‌بافی: http://localhost:{$port}\n\n";
+        passthru(sprintf('php -S localhost:%d -t %s', $port, escapeshellarg($root)));
+        break;
+
+    case 'migrate':
+        Migrator::migrate();
+        break;
+
+    case 'migrate:fresh':
+        Migrator::fresh();
+        break;
+
+    case 'seed':
+        Seeder::run();
+        break;
+
+    case 'fresh':
+        Migrator::fresh();
+        Seeder::run();
+        echo "\n✅ پایگاه داده ساخته و دانه‌گذاری شد.\n";
+        break;
+
+    case 'test':
+        passthru(dirname(__DIR__) . '/vendor/bin/phpunit --colors=always ' . implode(' ', array_map('escapeshellarg', array_slice($argv, 2))), $code);
+        exit($code);
+
+    case 'optimize':
+        // کش مسیرهای کامپایل‌شده (نقشهٔ راه ۰٫۳٫۲)
+        $cache = App::router()->exportCache();
+        $file = dirname(__DIR__) . '/storage/cache/routes.cache.php';
+        if (!is_dir(dirname($file))) {
+            mkdir(dirname($file), 0775, true);
+        }
+        file_put_contents($file, "<?php\n// کش مسیرها — با `php bin/faraat optimize:clear` حذف می‌شود\nreturn " . var_export($cache, true) . ";\n");
+        echo '✓ کش ' . count($cache['routes']) . " مسیر ساخته شد: storage/cache/routes.cache.php\n";
+        echo "  نکته: پس از تغییر routes.php حتماً optimize:clear یا optimize دوباره اجرا شود.\n";
+        break;
+
+    case 'optimize:clear':
+        $file = dirname(__DIR__) . '/storage/cache/routes.cache.php';
+        if (is_file($file)) {
+            unlink($file);
+            echo "✓ کش مسیرها حذف شد.\n";
+        } else {
+            echo "کش مسیرها وجود ندارد.\n";
+        }
+        break;
+
+    case 'queue:work':
+        // کارگر صف رویدادها (نقشهٔ راه ۰٫۳٫۱)
+        $once = in_array('--once', $argv, true);
+        $max = (int) (Config::get('app.queue_batch', 50));
+        echo $once ? "پردازش یک دسته از صف رویدادها…\n" : "کارگر صف رویدادها فعال است (Ctrl+C برای توقف)…\n";
+        $worker = new \Core\QueueWorker();
+        do {
+            $processed = $worker->runBatch($max);
+            if ($processed > 0) {
+                echo '✓ ' . $processed . " رویداد پردازش شد.\n";
+            } elseif (!$once) {
+                sleep(2);
+            }
+        } while (!$once && $processed >= 0);
+        break;
+
+    case 'routes':
+        foreach (App::router()->routes() as $route) {
+            printf("%-6s %-60s %s\n", $route['method'], $route['pattern'], is_string($route['action']) ? $route['action'] : (is_array($route['action']) ? implode('@', $route['action']) : 'closure'));
+        }
+        break;
+
+    case 'modules':
+        foreach (Modules::all() as $name => $meta) {
+            printf("%-14s %s (فاز %s) %s\n", $name, $meta['title_fa'], $meta['phase'], $meta['enabled'] ? '' : '[غیرفعال]');
+        }
+        break;
+
+    default:
+        echo <<<TXT
+        کنسول فرت‌بافی 🧵
+
+        دستورها:
+          serve [port]     اجرای سرور توسعه (پیش‌فرض ۸۰۸۰)
+          migrate          اجرای مهاجرت‌های پایگاه داده
+          migrate:fresh    ساخت مجدد جداول از صفر
+          seed             درج دادهٔ نمونه
+          fresh            migrate:fresh + seed
+          test             اجرای تست‌های PHPUnit
+          routes           فهرست مسیرهای ثبت‌شده
+          modules          فهرست ماژول‌ها
+
+        TXT;
+}

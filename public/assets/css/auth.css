@@ -1,0 +1,40 @@
+/* ============================================================
+   auth.css — صفحات ورود / ثبت‌نام / بازیابی
+   کارت مرکزی روی زمینهٔ بافت‌دار
+   ============================================================ */
+
+.auth-page {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  padding: var(--space-5);
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(139, 46, 58, .08), transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(27, 168, 161, .09), transparent 50%),
+    var(--color-bg);
+}
+.auth-card {
+  width: min(440px, 100%);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop);
+  padding: var(--space-6);
+  position: relative; overflow: hidden;
+}
+.auth-card::before {
+  content: ''; position: absolute; top: 0; inset-inline: 0; height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-gold), var(--color-secondary));
+}
+.auth-card__brand { text-align: center; margin-bottom: var(--space-5); }
+.auth-card__brand .brand__logo { width: 56px; height: 56px; margin: 0 auto var(--space-3); border-radius: 16px; }
+.auth-card__brand h1 { font-size: 1.2rem; margin-bottom: 2px; }
+.auth-card__brand p { color: var(--color-text-muted); font-size: .82rem; margin: 0; }
+
+.auth-footer { text-align: center; margin-top: var(--space-4); font-size: .85rem; color: var(--color-text-secondary); }
+
+.demo-accounts { margin-top: var(--space-5); border-top: 1px dashed var(--color-border); padding-top: var(--space-4); }
+.demo-accounts__title { font-size: .78rem; font-weight: 700; color: var(--color-text-muted); margin-bottom: var(--space-2); display:flex; align-items:center; gap:6px; }
+.demo-accounts table { width: 100%; font-size: .76rem; border-collapse: collapse; }
+.demo-accounts td { padding: 4px 6px; border-bottom: 1px solid var(--color-border); }
+.demo-accounts .ltr { font-family: var(--font-code); font-size: .74rem; }
+.demo-accounts .fill-btn { cursor: pointer; color: var(--color-secondary); background: none; border: none; font-family: inherit; font-size: .74rem; padding: 2px 6px; }
+.demo-accounts .fill-btn:hover { text-decoration: underline; }

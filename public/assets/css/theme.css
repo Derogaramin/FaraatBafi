@@ -1,0 +1,124 @@
+/* ============================================================
+   theme.css — متغیرهای سراسری هویت بصری «فرت»
+   سبک طراحی: مینیمالیسم گرم و بافت‌دار
+   پالت: رنگدانه‌های طبیعی و چوب گردو (کتابچهٔ هویت بصری برند)
+
+   تم روز (پیش‌فرض) و تم شب با [data-theme="dark"]
+   ============================================================ */
+
+:root {
+  /* ── رنگ‌های برند ── */
+  --color-primary:        #8B2E3A;  /* زرشکی روناس */
+  --color-primary-hover:  #A03A48;
+  --color-primary-light:  rgba(139, 46, 58, .09);
+  --color-secondary:      #1BA8A1;  /* فیروزه‌ای */
+  --color-secondary-hover:#17938D;
+  --color-secondary-light:rgba(27, 168, 161, .1);
+  --color-action:         #1A3B4C;  /* نیلی — دکمه‌ها و لینک‌ها */
+  --color-action-hover:   #24506A;
+  --color-action-light:   rgba(26, 59, 76, .08);
+  --color-gold:           #C2A878;  /* خاکی/طلایی */
+
+  /* ── خنثی‌ها (تم روز: کرم پنبه‌ای و چوب گردو) ── */
+  --color-bg:             #FDFBF7;
+  --color-bg-subtle:      #F6F0E4;
+  --color-surface:        #FFFFFF;
+  --color-surface-2:      #FAF6EE;
+  --color-text:           #3A2C24;
+  --color-text-secondary: #6E5D50;
+  --color-text-muted:     #9A8B7C;
+  --color-border:         #E4DACB;
+  --color-border-strong:  #D9CFC0;
+
+  /* ── وضعیت‌ها ── */
+  --color-warning:        #C68A3C;  /* اخرایی */
+  --color-warning-light:  #FBF1DF;
+  --color-danger:         #B13E3E;
+  --color-danger-light:   #F9E9E9;
+  --color-success:        #4A6B4A;  /* سبز گیاهی */
+  --color-success-light:  #E9F0E7;
+  --color-info:           #1BA8A1;
+  --color-info-light:     #E3F4F3;
+
+  /* ── سایه‌ها ── */
+  --shadow-sm:   0 1px 3px rgba(58, 44, 36, .06);
+  --shadow-card: 0 2px 10px rgba(58, 44, 36, .07);
+  --shadow-hover:0 8px 24px rgba(58, 44, 36, .13);
+  --shadow-pop:  0 16px 48px rgba(58, 44, 36, .18);
+
+  /* ── شعاع‌ها ── */
+  --radius-sm:   6px;
+  --radius-btn:  8px;
+  --radius-card: 12px;
+  --radius-lg:   18px;
+  --radius-full: 999px;
+
+  /* ── تایپوگرافی ── */
+  --font-main:    'Vazirmatn', 'Tahoma', sans-serif;
+  --font-numbers: 'Vazirmatn', 'Tahoma', sans-serif;
+  --font-code:    'Courier New', monospace;
+
+  /* ── فواصل ── */
+  --space-1: .25rem;  --space-2: .5rem;  --space-3: .75rem;
+  --space-4: 1rem;    --space-5: 1.5rem; --space-6: 2rem;
+  --space-7: 3rem;    --space-8: 4rem;
+
+  /* ── ارتفاع‌ها ── */
+  --height-input: 48px;
+  --height-btn:   48px;
+  --height-btn-sm:36px;
+
+  /* ── ساختار پنل‌ها ── */
+  --sidebar-w: 264px;
+  --topbar-h:  64px;
+  --header-h:  68px;
+
+  /* ── نقش‌مایهٔ بافت (بسیار محو — اپاسیتی ~۰٫۰۴) ── */
+  --pattern-weave: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238B2E3A' fill-opacity='0.045'%3E%3Cpath d='M38 36v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V2h-2v4h-4v2h4v4h2V8h4V6h-4zM8 36v-4H6v4H2v2h4v4h2v-4h4v-2H8zM8 6V2H6v4H2v2h4v4h2V8h4V6H8zm22 26l-6-6 2-2 4 4 4-4 2 2-6 6zm12 12l-6-6 2-2 4 4 4-4 2 2-6 6zM18 20l-6-6 2-2 4 4 4-4 2 2-6 6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+  --pattern-hero: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C2A878' stroke-opacity='0.16' stroke-width='1'%3E%3Cpath d='M60 10l50 50-50 50L10 60z'/%3E%3Cpath d='M60 30l30 30-30 30-30-30z'/%3E%3Cpath d='M60 50l10 10-10 10-10-10z'/%3E%3C/g%3E%3C/svg%3E");
+
+  color-scheme: light;
+}
+
+/* ═══════════════ تم شب (Dark) ═══════════════ */
+[data-theme="dark"] {
+  --color-primary:        #D47280;
+  --color-primary-hover:  #E08A96;
+  --color-primary-light:  rgba(212, 114, 128, .12);
+  --color-secondary:      #3CC5BE;
+  --color-secondary-hover:#57D3CC;
+  --color-secondary-light:rgba(60, 197, 190, .12);
+  --color-action:         #8FB3CC;
+  --color-action-hover:   #A9C6DA;
+  --color-action-light:   rgba(143, 179, 204, .1);
+  --color-gold:           #C9B183;
+
+  --color-bg:             #16110D;
+  --color-bg-subtle:      #1D1712;
+  --color-surface:        #221A14;
+  --color-surface-2:      #2A2119;
+  --color-text:           #F2E9DC;
+  --color-text-secondary: #C4B3A2;
+  --color-text-muted:     #A6947F; /* کنتراست ≥ 4.5:1 روی surface (نقد §۸٫۵) */
+  --color-border:         #382C22;
+  --color-border-strong:  #4A3A2D;
+
+  --color-warning:        #DFA55C;
+  --color-warning-light:  rgba(223, 165, 92, .13);
+  --color-danger:         #E08585;
+  --color-danger-light:   rgba(224, 133, 133, .12);
+  --color-success:        #93B98F;
+  --color-success-light:  rgba(147, 185, 143, .12);
+  --color-info:           #3CC5BE;
+  --color-info-light:     rgba(60, 197, 190, .1);
+
+  --shadow-sm:   0 1px 3px rgba(0, 0, 0, .35);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, .38);
+  --shadow-hover:0 8px 28px rgba(0, 0, 0, .5);
+  --shadow-pop:  0 16px 48px rgba(0, 0, 0, .6);
+
+  --pattern-weave: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9B183' fill-opacity='0.05'%3E%3Cpath d='M38 36v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V2h-2v4h-4v2h4v4h2V8h4V6h-4zM8 36v-4H6v4H2v2h4v4h2v-4h4v-2H8zM8 6V2H6v4H2v2h4v4h2V8h4V6H8zm22 26l-6-6 2-2 4 4 4-4 2 2-6 6zm12 12l-6-6 2-2 4 4 4-4 2 2-6 6zM18 20l-6-6 2-2 4 4 4-4 2 2-6 6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+  color-scheme: dark;
+}
